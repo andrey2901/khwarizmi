@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>Welcome to Khwarizmi!</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputScript library="js" name="common.js" />
+</h:head>
+<h:body>
+	<h1>Welcome to Khwarizmi!</h1>
+	<hr />
+	<form id="loginForm" class="form" method="post"
+		action="j_security_check">
+		<div align="left">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="User : " />
+				<input type="text" name="j_username" value=""
+					onblur="userNameRequired()" />
+				<span id="userNameError" />
+				<h:outputLabel value="Password : " />
+				<input type="password" name="j_password" value=""
+					onblur="passwordRequired()" />
+				<span id="passwordError" />
+			</h:panelGrid>
+			<input type="submit" value="Login" />
+		</div>
+	</form>
+	<hr />
+</h:body>
+</html>
+

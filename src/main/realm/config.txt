@@ -1,0 +1,12 @@
+Name:                          jdbc-realm
+Class Name:                    com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm
+JAAS Context:                  jdbcRealm
+JNDI:                          jdbc/securityDatasource
+User Table:                    jdbcrealm.users
+User Name Column:              username
+Password Column:               password
+Group Table:                   jdbcrealm.groups
+Group Table User Name Column:  username
+Group Name Column:             groupname
+Password Encryption Algorithm: AES
+Charset:                       UTF-8

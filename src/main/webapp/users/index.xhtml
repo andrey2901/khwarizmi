@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Welcome, #{request.remoteUser}!</title>
+</h:head>
+<h:body style="background-color: gainsboro;">
+	<h3>Now you are the Logged in User</h3>
+	<p>
+		Dear #{request.remoteUser}, now you can use our service. For that,
+		please, choose a file with formulas and push <br /> "Check" button.
+	</p>
+	<p>
+		<h:form id="form" enctype="multipart/form-data" prependId="false">
+			<p>
+				<h:inputFile id="file" value="#{khwarizmiBean.reader.uploadedFile}" />
+			</p>
+			<p>
+				<h:inputTextarea value="#{khwarizmiBean.text}" cols="70" rows="10"
+					readonly="true" style="width:100%" />
+			</p>
+			<p>
+				<h:commandButton id="button" value="Check formulas"
+					action="#{khwarizmiBean.checkFormulas}">
+					<f:setPropertyActionListener target="#{khwarizmiBean.user}"
+						value="#{request.remoteUser}" />
+				</h:commandButton>
+				<br /> <br />
+				<h:commandButton value="Download result as file"
+					action="#{khwarizmiBean.download}"
+					rendered="#{not empty khwarizmiBean.text}" />
+			</p>
+		</h:form>
+		<h:form>
+			<h:commandLink action="#{logoutBean.logout}" value="Logout" />
+		</h:form>
+	</p>
+</h:body>
+</html>
+
